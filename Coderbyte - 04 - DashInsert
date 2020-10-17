@@ -1,0 +1,48 @@
+/*
+Have the function dashInsert(str) insert dashes ('-') between each two odd numbers in str. 
+For example: if str is 454793 the output should be 4547-9-3. Don't count zero as an odd number.
+*/
+
+
+let dashStr = ''; // String that will contain the final output with dashes
+
+// Function to find odd numbers
+function isOddNum(num) {
+  if (num%2==0) {
+    return false;
+   } else {
+    return true;
+   }
+}
+
+// Function to insert dash after odd number
+function dashInsert(str) {
+
+    // Splitting the string
+   str = str.split('');
+   
+    // Iterating for each element of the string 
+   for (i=0; i<str.length; i++) {
+ 
+     let testNum = str[i];           //current element
+     let iPlus1 = i+1;              
+     let testNum2 = str[iPlus1];     // next element
+
+     // If current element is odd, check if next element is also odd and if yes, add current element and '-' to final output. Otherwise only add current element to final output.
+     if (isOddNum(testNum)) {         
+            if (isOddNum(testNum) === isOddNum(testNum2)) { 
+                dashStr += testNum;
+                if (iPlus1 < str.length) {
+                    dashStr += '-';
+                }
+            } else {
+                dashStr += testNum;
+            }
+       } else {
+           dashStr += testNum;
+       }
+   }
+  return dashStr;
+}
+
+console.log(dashInsert('454793'));
