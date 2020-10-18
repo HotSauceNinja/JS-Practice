@@ -1,19 +1,20 @@
 /* 
 Have the function abCheck(str) take the str parameter being passed and return the string true 
 if the characters a and b are separated by exactly 3 places anywhere in the string at least once 
-(ie. "lane borrowed" would result in true because there is exactly three characters between a and b). 
+(ie. "lane borrowed" would result in true because there are exactly three characters between a and b). 
 Otherwise return the string false. 
 */
 
-function abSeparated() {
 
-return true;
+function abCheck(str) { 
+   for (var i = 0; i < str.length - 4; i++) {
+     let x = str[i].toLowerCase();
+     let y = str[i + 4].toLowerCase();
+     if (x == 'a' && y == 'b')
+       return 'true';
+     else if (x == 'b' && y == 'a')
+       return 'true';
+   }
+  return 'false';       
 }
-
-function abCheck(str) {
-if (abSeparated) {
-  return 'true';
-} else {
-  return 'false';
-  }
-}
+console.log(abCheck('lane borrowed'));
