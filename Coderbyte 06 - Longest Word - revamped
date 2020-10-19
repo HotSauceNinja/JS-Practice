@@ -1,0 +1,28 @@
+/*
+Revamped the Coderbyte Longets Word exercise to log all comparisons it does, 
+and to print the longest word and its length at the end of the comparison process.
+*/
+
+let longest = ['an empty string'];
+
+function LongestWord(sen) { 
+// removes punctuation & splits string into words
+  sen = sen.replace(/[^\w\s]|_/g, "");
+  sen = sen.split(' ');
+
+// checks all the word lengths to find the longest word
+for (i=0; i<sen.length; i++) {
+    if (sen[i].length > longest.length) {
+      console.log(`Comparison ${i+1}: ${sen[i]} is longer than ${longest}`);
+      longest = sen[i];  
+    } else if (sen[i].length < longest.length) {
+    console.log(`Comparison ${i+1}: ${longest} is longer than ${sen[i]}`);
+    } else if (sen[i].length = longest.length) {
+    console.log(`Comparison ${i+1}: ${longest} is ${longest.length} letters long`);
+    } 
+  }
+  sen = longest;
+  return `The longest word is ${sen} at ${longest.length} letters!`;
+}
+   
+console.log(LongestWord(readline()));
